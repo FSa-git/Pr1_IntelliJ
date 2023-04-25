@@ -12,9 +12,9 @@ public class FranciFrame extends JFrame {
         this.setSize(300,300);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        this.setLayout(new FlowLayout()); // Layout-Manager
+        this.setLayout(new FlowLayout()); // Layout-Manager, setzt neuen Text runter
 
-        lb = new JLabel("Hallo ADV World!");
+        lb = new JLabel("<html><h1>Hallo ADV World!</h1></html>"); // geht auch nur String
         this.add(lb);
     }
 }
