@@ -12,7 +12,7 @@ public class Uebung_1 {
         jF.setTitle("Meine Uhr");
 
         jF.setBounds(500,200,200,500);
-        jF.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        jF.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JLabel label = new JLabel("Moin moin");
         jF.add(label);
