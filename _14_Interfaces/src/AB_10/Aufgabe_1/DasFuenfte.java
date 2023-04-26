@@ -2,7 +2,7 @@ package AB_10.Aufgabe_1;
 
 import java.util.Vector;
 
-public class DasFuenfte {
+public class DasFuenfte implements Nachrichtenquelle{
 
     private String typ;
     private Vector vec = new Vector<Person>();
