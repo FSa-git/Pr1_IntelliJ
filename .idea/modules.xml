@@ -5,6 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/Pr1_IntelliJ.iml" filepath="$PROJECT_DIR$/.idea/Pr1_IntelliJ.iml" />
       <module fileurl="file://$PROJECT_DIR$/_12_Vererbung/_12_Vererbung.iml" filepath="$PROJECT_DIR$/_12_Vererbung/_12_Vererbung.iml" />
       <module fileurl="file://$PROJECT_DIR$/_14_Interfaces/_14_Interfaces.iml" filepath="$PROJECT_DIR$/_14_Interfaces/_14_Interfaces.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_15_Exceptions/_15_Exceptions.iml" filepath="$PROJECT_DIR$/_15_Exceptions/_15_Exceptions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_16_JavaGenerics/_16_JavaGenerics.iml" filepath="$PROJECT_DIR$/_16_JavaGenerics/_16_JavaGenerics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_17_Aggregation und Komposition/_17_Aggregation und Komposition.iml" filepath="$PROJECT_DIR$/_17_Aggregation und Komposition/_17_Aggregation und Komposition.iml" />
       <module fileurl="file://$PROJECT_DIR$/_20_GUI/_20_GUI.iml" filepath="$PROJECT_DIR$/_20_GUI/_20_GUI.iml" />
       <module fileurl="file://$PROJECT_DIR$/_21_Dateien_Einlesen/_21_Dateien_Einlesen.iml" filepath="$PROJECT_DIR$/_21_Dateien_Einlesen/_21_Dateien_Einlesen.iml" />
     </modules>
