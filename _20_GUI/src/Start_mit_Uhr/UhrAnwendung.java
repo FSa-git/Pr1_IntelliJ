@@ -26,7 +26,9 @@ public class UhrAnwendung {
 
         andiframe.setVisible(true);
 
-        // keine Abbruch Schleife     // die Schleife überschreibt alles
+        // keine Abbruch Schleife
+        // die Schleife überschreibt alles
+
         while (true) {
             // andiframe.remove(label1);
             // label1 = new JLabel(String.format("%tT", new Date()));
