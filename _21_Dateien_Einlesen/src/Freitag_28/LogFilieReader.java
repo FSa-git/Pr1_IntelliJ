@@ -32,6 +32,8 @@ public class LogFilieReader {
             e.printStackTrace();
         }
 
+        // --------------------
+
         for ( String line : lines ) {
             String[] segments = line.split(splitter);
             System.out.println(segments[4] + ": " + segments[1] + " (" + segments[0] + ") – " + segments[3] + " (" + segments[2] + ")");
