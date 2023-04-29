@@ -1,4 +1,4 @@
-package AB_20;
+package AB_20.Einstieg;
 
 import javax.swing.*; //JFrame
 import java.awt.*;
@@ -12,8 +12,8 @@ public class ButtonBeispiel extends JFrame{
         this.setLayout(new FlowLayout());
         bSchliessen = new JButton("Schliessen");
         this.add(bSchliessen);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
     }
 
-}
+ }
