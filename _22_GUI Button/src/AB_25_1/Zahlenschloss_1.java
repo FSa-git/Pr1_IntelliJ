@@ -1,17 +1,17 @@
-package Safe;
+package AB_25_1;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Zahlenschloss extends JFrame implements ActionListener {
+public class Zahlenschloss_1 extends JFrame implements ActionListener {
 
     // Deklaration
     JButton bEins, bZwei;
 
     // -- DAS BRAUCHT MAN IMMER --
-    public Zahlenschloss(String title) {
+    public Zahlenschloss_1(String title) {
         super(title);
 
         // Buttons festlegen
@@ -24,7 +24,6 @@ public class Zahlenschloss extends JFrame implements ActionListener {
 
         // Layout festsetzen
         this.setLayout(new FlowLayout());
-
 
 
         this.add(bEins);
