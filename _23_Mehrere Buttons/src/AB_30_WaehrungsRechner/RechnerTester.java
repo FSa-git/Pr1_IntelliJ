@@ -7,7 +7,7 @@ public class RechnerTester {
         RechnerBeispiel fr = new RechnerBeispiel("Wellsteins Währungsrechner");
 
         fr.setSize(600,500);
-        fr.setBounds(250, 250, 500, 500);
+        fr.setBounds(250, 250, 300, 500);
 
         fr.setVisible(true);
 
