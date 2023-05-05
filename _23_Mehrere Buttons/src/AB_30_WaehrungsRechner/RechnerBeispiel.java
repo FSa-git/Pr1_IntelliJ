@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 public class RechnerBeispiel extends JFrame implements ActionListener {
 
-    JButton bRechnen;
+    JButton bRechnen, bLoeschen;
     JTextField jj1;
     JTextField jj2;
 
@@ -23,6 +23,14 @@ public class RechnerBeispiel extends JFrame implements ActionListener {
 
         bRechnen = new JButton("Umrechnen");
 
+        bLoeschen = new JButton("Reset");
+
+        JPanel panel = new JPanel();
+        this.add(panel);
+        String[] choices = { "Euro","USD", "Lira","Yen"};
+        final JComboBox<String> cb = new JComboBox<String>(choices);
+        this.add(cb);
+
         this.add(j1);
         this.add(jj1);
 
@@ -30,6 +38,7 @@ public class RechnerBeispiel extends JFrame implements ActionListener {
         this.add(jj2);
 
         this.add(bRechnen);
+        this.add(bLoeschen);
 
         bRechnen.addActionListener(this);
 
@@ -48,15 +57,6 @@ public class RechnerBeispiel extends JFrame implements ActionListener {
 
             // Set the value of the second text field to the converted Euro value
             jj2.setText(String.format("%.2f", euro));
-        }
-        else if (e.getActionCommand().equals("Umrechnen")){
-
-            double EuropaEuro = Double.parseDouble(jj2.getText());
-
-            double SingiDolly = EuropaEuro * 0.8;
-
-            jj1.setText(String.format("%.2f", SingiDolly));
-
         }
     }
 }
