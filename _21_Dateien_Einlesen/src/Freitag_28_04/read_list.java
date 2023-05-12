@@ -1,4 +1,4 @@
-package Freitag_28;
+package Freitag_28_04;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

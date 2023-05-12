@@ -1,11 +1,4 @@
-package Freitag_28;
-
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
+package Freitag_28_04;
 
 public class file_reader {
 
