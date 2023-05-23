@@ -90,6 +90,9 @@ public class GeometrischeFormen extends JDialog {
         System.exit(0);
 
         }
+        catch(IllegalArgumentException event){
+            System.out.println("Fehler");
+        }
         catch (Exception e){
             e.printStackTrace();
         }
