@@ -1,15 +1,14 @@
 package packDaten;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 
-public class DemoAufgabe {
+public class DemoAufgabe_Auslesen {
 
-    static String filename = "C:\\tmp\\daten.txt";
+    static String filename = "/Users/francescosakautzki/Desktop/HeutePrg/Pr1_IntelliJ/_25_WDH_DateienEinlesen/src/packDaten/daten.txt";
 
     public static void main(String[] args) throws IOException { // throws muss nicht sein, kann man machen..
         BufferedReader reader = null;
