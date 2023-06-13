@@ -26,11 +26,16 @@ public class Aufgabe_1 {
             writer.write("____________________________");
             writer.newLine();
 
-            int geschwindigkeit = 0, anhalteweg = 0;
+            int geschwindigkeit = 0;
+            int reaktionsweg = (geschwindigkeit / 10)*3;
+
+            int bremsweg = (geschwindigkeit / 10) * (geschwindigkeit / 10);
+
+            int anhalteweg = reaktionsweg + bremsweg;
 
             for (int i = 0; i <= 100; i = i + 10){
                 geschwindigkeit = i;
-                anhalteweg = i;
+
 
                 writer.write(geschwindigkeit + trennzeichen + anhalteweg);
                 writer.newLine();
