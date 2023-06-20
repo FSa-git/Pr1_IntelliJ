@@ -9,7 +9,7 @@ public class Person {
 
     private String name;
     private LocalDate birthday;
-    private Sex gender;
+    public Sex gender; // bei private wäre es getGender
     private String emailAdress;
     private int age; // Warum nicht implementieren? Es verändert sich, es steht hier als eigenschaft, nicht als Attribut
 
