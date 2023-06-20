@@ -4,6 +4,7 @@ import jdk.jshell.PersistentSnippet;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Starter {
@@ -34,6 +35,28 @@ public class Starter {
 
         // Geburtstag setzen
         p1.setBirthday((LocalDate.of(2010,12,2)) );
+
+
+        // Inline Funktion, in kurzschreibweise
+        /*
+        Person.printPersons(personenListe, new CheckPerson() {
+
+            @Override
+            public boolean test(Person p) {
+                return false;
+            }
+
+
+            // return p.getGender() == Person.Sex.MALE && p.getAge() > 18 && p.getAge() <= 25;
+
+
+        });
+
+         */
+
+        // Lambda Ausdruck
+        //
+        Person.printPersons(personenListe, (Person p) -> p.getGender() == Person.Sex.MALE && p.getAge() > 18 && p.getAge() <= 25); // -> Lambda Operator
 
 
     }

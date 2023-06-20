@@ -89,12 +89,16 @@ public class Person {
 
     private void printPerson() {
 
-        System.out.println("Name " + this.getName() // Man kann diese Funktion überall verwendet
+        System.out.println("Name " + this.getName()); // Man kann diese Funktion überall verwendet
 
+    }
 
-
-        );
-
+    public static void printPersons(List <Person> roster, CheckPerson tester){
+        for (Person p : roster){
+            if (tester.test(p)){
+                p.printPerson();
+            }
+        }
     }
 
 }
