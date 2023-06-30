@@ -3,6 +3,7 @@ package _32_FastFoodBestellTool;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.*;
 
 public class FoodDB_GUI extends JDialog{
     private JPanel panel1;
@@ -48,23 +49,30 @@ public class FoodDB_GUI extends JDialog{
         comboBox4.addItem("Item 3");
 */
         loadComboBoxOptionsFromDatabase("comboBox1", comboBox1);
+        loadComboBoxOptionsFromDatabase("comboBox2", comboBox2);
+        loadComboBoxOptionsFromDatabase("comboBox3", comboBox3);
+
+        // loadComboBoxOptionsFromDatabase(comboBox1);
 
 
     }
 
     private void loadComboBoxOptionsFromDatabase(String columnName, JComboBox comboBox) {
         try {
+
+            Class.forName("org.mariadb.jdbc.Driver");
+
             // MySQL-Datenbankverbindung herstellen
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:8888/your_database_name", "username", "password");
+            Connection connection = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:8889/KrustyKrab", "root", "root");
 
             // SQL-Abfrage ausführen
-            String query = "SELECT " + columnName + " FROM your_table_name";
+            String query = "SELECT Bezeichnung FROM Foods ORDER BY CASE WHEN Bezeichnung = 'Bitte Auswählen' THEN 0 ELSE 1 END, Preis ASC"; // Database column (2)
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
 
             // JComboBox-Optionen aktualisieren
             while (resultSet.next()) {
-                String option = resultSet.getString(columnName);
+                String option = resultSet.getString("Bezeichnung");
                 comboBox.addItem(option);
             }
 
@@ -74,6 +82,9 @@ public class FoodDB_GUI extends JDialog{
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Fehler beim Abrufen der Daten aus der Datenbank", "Fehler", JOptionPane.ERROR_MESSAGE);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 
