@@ -24,6 +24,7 @@ public class FoodDB_GUI extends JDialog{
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
+                // Hier methode
             }
         });
 
