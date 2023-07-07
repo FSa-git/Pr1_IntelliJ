@@ -1,9 +1,11 @@
 package _32_FastFoodBestellTool;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class FoodDB_GUI extends JDialog{
     private JPanel panel1;
@@ -35,11 +37,66 @@ public class FoodDB_GUI extends JDialog{
 
         loadDrinksDatabase("comboBox4", comboBox4);
 
+        // Hier heute:
+        // loadPricefromDatabase("JButton", kasseButton);
+
+        bestellungAkzeptierenButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                    Class.forName("org.mariadb.jdbc.Driver");
+                    Connection connection = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:8889/KrustyKrab", "root", "root");
+
+                // SQL-Abfrage für Foods ausführen
+                String foodsQuery = "SELECT Preis FROM Foods";
+                Statement foodsStatement = connection.createStatement();
+                ResultSet foodsResultSet = foodsStatement.executeQuery(foodsQuery);
+
+                // SQL-Abfrage für Drinks ausführen
+                String drinksQuery = "SELECT Preis FROM Drinks";
+                Statement drinksStatement = connection.createStatement();
+                ResultSet drinksResultSet = drinksStatement.executeQuery(drinksQuery);
+
+                // Preise aus den ResultSets in ein ArrayList<Double> speichern
+                ArrayList<Double> prices = new ArrayList<>();
+                while (foodsResultSet.next()) {
+                    double price = foodsResultSet.getDouble("Preis");
+                    prices.add(price);
+                }
+                while (drinksResultSet.next()) {
+                    double price = drinksResultSet.getDouble("Preis");
+                    prices.add(price);
+                }
+
+                // Preise als Text im JTextField anzeigen
+                StringBuilder sb = new StringBuilder();
+                for (double price : prices) {
+                    sb.append(price).append(", ");
+                }
+                // Entfernen des letzten Kommas und Leerzeichens
+                if (sb.length() > 2) {
+                    sb.setLength(sb.length() - 2);
+                }
+                textField10.setText(sb.toString());
+
+                // Ressourcen freigeben
+                foodsResultSet.close();
+                foodsStatement.close();
+                drinksResultSet.close();
+                drinksStatement.close();
+                connection.close();
+            } catch (ClassNotFoundException ex) {
+                ex.printStackTrace();
+            }
+        });
 
         // loadComboBoxOptionsFromDatabase(comboBox1);
 
 
     }
+
+    private void loadPricefromDatabase(String jButton, JButton kasseButton) {}
+
 
     private void loadComboBoxOptionsFromDatabase(String columnName, JComboBox comboBox) {
         try {
