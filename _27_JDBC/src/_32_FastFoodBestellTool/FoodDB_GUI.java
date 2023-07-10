@@ -1,11 +1,9 @@
 package _32_FastFoodBestellTool;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
-import java.util.ArrayList;
 
 public class FoodDB_GUI extends JDialog{
     private JPanel panel1;
@@ -17,6 +15,14 @@ public class FoodDB_GUI extends JDialog{
     private JComboBox comboBox2;
     private JComboBox comboBox3;
     private JComboBox comboBox4;
+    private JPanel imageField;
+    private JRadioButton karteRadioButton;
+    private JRadioButton radioButton2;
+    private JList list1;
+    private JTextField rCode;
+    private JLabel rabatt_Code;
+    private JRadioButton payPalRadioButton;
+    private JRadioButton bitCoinRadioButton;
 
     public FoodDB_GUI(){
         setContentPane(contentPane);
@@ -27,6 +33,7 @@ public class FoodDB_GUI extends JDialog{
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
                 // Hier methode
+
             }
         });
 
@@ -37,8 +44,13 @@ public class FoodDB_GUI extends JDialog{
 
         loadDrinksDatabase("comboBox4", comboBox4);
 
+
+
+
         // Hier heute:
         // loadPricefromDatabase("JButton", kasseButton);
+
+        /*
 
         bestellungAkzeptierenButton.addActionListener(new ActionListener() {
             @Override
@@ -91,7 +103,7 @@ public class FoodDB_GUI extends JDialog{
         });
 
         // loadComboBoxOptionsFromDatabase(comboBox1);
-
+*/
 
     }
 
@@ -115,6 +127,18 @@ public class FoodDB_GUI extends JDialog{
             while (resultSet.next()) {
                 String option = resultSet.getString("Bezeichnung");
                 comboBox.addItem(option);
+            }
+
+            // Recupero del valore selezionato dalla JComboBox
+            String selectedOption = comboBox.getSelectedItem().toString();
+
+            // Impostazione dell'immagine come sfondo in base alla selezione
+            if (selectedOption.equals("Double Cheese Burger")) {
+                ImageIcon icon = new ImageIcon("src/_32_FastFoodBestellTool/double_cheese_burger.png");
+                JLabel label = new JLabel(icon);
+                imageField.add(label);
+            } else {
+                System.out.println("Immagine non trovata");
             }
 
             // Ressourcen freigeben
