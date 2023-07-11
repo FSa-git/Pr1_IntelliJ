@@ -1,6 +1,7 @@
 package _32_FastFoodBestellTool;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
@@ -23,8 +24,17 @@ public class FoodDB_GUI extends JDialog{
     private JLabel rabatt_Code;
     private JRadioButton payPalRadioButton;
     private JRadioButton bitCoinRadioButton;
+    private JButton rabattEinlösenButton;
+    private JTextArea textArea1;
+    private JLabel burger1_logo;
+    private JLabel burger2_logo;
+    private JLabel belgium_logo;
+    private JLabel pop_logo;
+    private JLabel cola_logo;
+    private JLabel fanta_logo;
 
     public FoodDB_GUI(){
+
         setContentPane(contentPane);
         setModal(true);
 
@@ -32,7 +42,7 @@ public class FoodDB_GUI extends JDialog{
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                JOptionPane.showMessageDialog(null, "Ihre Bestellung wurde erfolgreich aufgenommen. Vielen Dank für Ihren Einkauf!");
+                JOptionPane.showMessageDialog( null, "Ihre Bestellung wurde erfolgreich aufgenommen. Vielen Dank für Ihren Einkauf!");
 
                 System.exit(0);
                 // Hier methode
@@ -120,7 +130,6 @@ public class FoodDB_GUI extends JDialog{
 
             // MySQL-Datenbankverbindung herstellen
             Connection connection = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:8889/KrustyKrab", "root", "root");
-
             // SQL-Abfrage ausführen
             String query = "SELECT Bezeichnung FROM Foods ORDER BY CASE WHEN Bezeichnung = 'Bitte Auswählen' THEN 0 ELSE 1 END, Preis ASC"; // Database column (2)
             Statement statement = connection.createStatement();
@@ -206,5 +215,32 @@ public class FoodDB_GUI extends JDialog{
         }
 
     }
+
+    private void createUIComponents() {
+        ImageIcon burger1Icon = new ImageIcon("/Users/francescosakautzki/Desktop/Pr1_IntelliJ/_27_JDBC/src/_32_FastFoodBestellTool/double_cheese_burger.png");
+        burger1_logo = new JLabel(scaleImageIcon(burger1Icon, 80, 80));
+
+        ImageIcon burger2Icon = new ImageIcon("/Users/francescosakautzki/Desktop/Pr1_IntelliJ/_27_JDBC/src/_32_FastFoodBestellTool/ceaser_burger.png");
+        burger2_logo = new JLabel(scaleImageIcon(burger2Icon, 80, 80));
+
+        ImageIcon belgiumIcon = new ImageIcon("/Users/francescosakautzki/Desktop/Pr1_IntelliJ/_27_JDBC/src/_32_FastFoodBestellTool/belgium_fries.png");
+        belgium_logo = new JLabel(scaleImageIcon(belgiumIcon, 80, 80));
+
+        ImageIcon popIcon = new ImageIcon("/Users/francescosakautzki/Desktop/Pr1_IntelliJ/_27_JDBC/src/_32_FastFoodBestellTool/xxl_popcorn.png");
+        pop_logo = new JLabel(scaleImageIcon(popIcon, 80, 80));
+
+        ImageIcon colaIcon = new ImageIcon("/Users/francescosakautzki/Desktop/Pr1_IntelliJ/_27_JDBC/src/_32_FastFoodBestellTool/coca_cola.png");
+        cola_logo = new JLabel(scaleImageIcon(colaIcon, 80, 80));
+
+        ImageIcon fantaIcon = new ImageIcon("/Users/francescosakautzki/Desktop/Pr1_IntelliJ/_27_JDBC/src/_32_FastFoodBestellTool/fanta.png");
+        fanta_logo = new JLabel(scaleImageIcon(fantaIcon, 80, 80));
+    }
+
+    private ImageIcon scaleImageIcon(ImageIcon icon, int width, int height) {
+        Image image = icon.getImage();
+        Image scaledImage = image.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        return new ImageIcon(scaledImage);
+    }
+
 
 }

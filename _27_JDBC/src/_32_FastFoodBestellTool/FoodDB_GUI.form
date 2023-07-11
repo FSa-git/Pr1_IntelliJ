@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="_32_FastFoodBestellTool.FoodDB_GUI">
   <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
     <constraints>
-      <xy x="20" y="20" width="871" height="400"/>
+      <xy x="20" y="20" width="1007" height="523"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -34,7 +34,9 @@
                     <constraints>
                       <splitpane position="right"/>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <orientation value="1"/>
+                    </properties>
                     <border type="none"/>
                     <children>
                       <grid id="e5f41" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -145,7 +147,7 @@
                               <text value="Zu Bezahlen"/>
                             </properties>
                           </component>
-                          <grid id="e219f" layout-manager="GridLayoutManager" row-count="4" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                          <grid id="e219f" layout-manager="GridLayoutManager" row-count="6" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                             <margin top="0" left="0" bottom="0" right="0"/>
                             <constraints>
                               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="2" fill="1" indent="0" use-parent-layout="false"/>
@@ -163,7 +165,7 @@
                               </component>
                               <component id="9be8a" class="javax.swing.JButton" binding="kasseButton" default-binding="true">
                                 <constraints>
-                                  <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                                  <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                                 </constraints>
                                 <properties>
                                   <text value="Jetzt bezahlen"/>
@@ -179,7 +181,7 @@
                               </component>
                               <grid id="92f47" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
                                 <constraints>
-                                  <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                                  <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                                 </constraints>
                                 <properties/>
                                 <border type="none"/>
@@ -227,6 +229,22 @@
                                   <text value="Rabatt Code:"/>
                                 </properties>
                               </component>
+                              <component id="b338d" class="javax.swing.JButton" binding="rabattEinlösenButton" default-binding="true">
+                                <constraints>
+                                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <text value="Rabatt Einlösen"/>
+                                </properties>
+                              </component>
+                              <component id="1713e" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <text value="Bezahlmöglichkeiten"/>
+                                </properties>
+                              </component>
                             </children>
                           </grid>
                           <grid id="843db" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
@@ -240,53 +258,80 @@
                                 <constraints/>
                                 <properties/>
                               </component>
+                              <component id="72a99" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
+                                <constraints/>
+                                <properties/>
+                              </component>
                             </children>
                           </grid>
                         </children>
                       </grid>
                     </children>
                   </splitpane>
-                  <grid id="6eca7" layout-manager="GridBagLayout">
+                  <grid id="6eca7" layout-manager="GridLayoutManager" row-count="13" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
                       <splitpane position="left"/>
                     </constraints>
                     <properties/>
                     <border type="none"/>
                     <children>
-                      <grid id="868ef" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                      <component id="8485b" class="javax.swing.JLabel" binding="cola_logo" custom-create="true">
                         <constraints>
-                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                          <gridbag weightx="1.0" weighty="1.0"/>
+                          <grid row="8" column="0" row-span="4" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                         </constraints>
-                        <properties/>
-                        <border type="none"/>
-                        <children>
-                          <grid id="32dff" binding="imageField" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
-                            <constraints/>
-                            <properties/>
-                            <border type="none"/>
-                            <children/>
-                          </grid>
-                          <grid id="959a3" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
-                            <constraints/>
-                            <properties/>
-                            <border type="none"/>
-                            <children/>
-                          </grid>
-                          <grid id="89b56" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
-                            <constraints/>
-                            <properties/>
-                            <border type="none"/>
-                            <children/>
-                          </grid>
-                          <grid id="50b99" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
-                            <constraints/>
-                            <properties/>
-                            <border type="none"/>
-                            <children/>
-                          </grid>
-                        </children>
-                      </grid>
+                        <properties>
+                          <text value="Coca Cola"/>
+                        </properties>
+                      </component>
+                      <component id="81323" class="javax.swing.JLabel" binding="burger2_logo" custom-create="true">
+                        <constraints>
+                          <grid row="2" column="0" row-span="3" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Ceasar Burger"/>
+                        </properties>
+                      </component>
+                      <component id="e35ed" class="javax.swing.JLabel" binding="belgium_logo" custom-create="true">
+                        <constraints>
+                          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Belgium Fries"/>
+                        </properties>
+                      </component>
+                      <component id="e26b3" class="javax.swing.JLabel" binding="pop_logo" custom-create="true">
+                        <constraints>
+                          <grid row="6" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Pop Corn"/>
+                        </properties>
+                      </component>
+                      <component id="cb154" class="javax.swing.JLabel" binding="fanta_logo" custom-create="true">
+                        <constraints>
+                          <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Fanta"/>
+                        </properties>
+                      </component>
+                      <component id="81773" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Menu Ansicht"/>
+                        </properties>
+                      </component>
+                      <component id="e15aa" class="javax.swing.JLabel" binding="burger1_logo" custom-create="true">
+                        <constraints>
+                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Double Cheese Burger"/>
+                        </properties>
+                      </component>
                     </children>
                   </grid>
                 </children>

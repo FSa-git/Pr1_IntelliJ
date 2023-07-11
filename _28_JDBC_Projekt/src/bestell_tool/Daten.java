@@ -8,13 +8,13 @@ public interface Daten {
     String dbTreiber = "org.mariadb.jdbc.Driver";
 
     // Datenbankserver (DNS-Name oder IP-Adresse angeben)
-    String host = "localhost";
+    String host = "127.0.0.1";
 
     // DBMS Server Port
     String port = "8889";
 
-    // Datenbankbanke
-    String db = "Bezeichnung";
+    // Datenbankbankname
+    String db = "KrustyKrab";
 
     // Datenbankzugangsdaten
     String user = "root";

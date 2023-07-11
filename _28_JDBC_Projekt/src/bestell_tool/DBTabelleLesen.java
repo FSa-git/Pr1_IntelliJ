@@ -5,15 +5,15 @@ import java.sql.*;
 public class DBTabelleLesen implements Daten{
 
     public static Connection baueVerbindungAuf() {
-        Connection verbindung = null; try
-        {
-            Class.forName(dbTreiber);
-            String s = "jdbc:mariadb://" + host + ":" + port + "/" + db + "?" + "?user=" + user + "&" + "&password=" + passwd;
+        Connection verbindung = null;
 
-            verbindung = DriverManager.getConnection(s);
+        try{
+            // Class.forName(dbTreiber);
+            // String s = "jdbc:mariadb://" + host + ":" + port + "/" + db + "?" + "?user=" + user + "&" + "&password=" + passwd;
+
+            // verbindung = DriverManager.getConnection(s);
+            verbindung = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:8889/KrustyKrab", "root", "root");
         }
-        catch (ClassNotFoundException e) {
-            System.out.println("Treiber nicht gefunden"); }
         catch (SQLException e) {
             System.out.println("Connect nicht moeglich:" + e.getMessage());
         }
