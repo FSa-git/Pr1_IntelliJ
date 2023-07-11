@@ -31,6 +31,9 @@ public class FoodDB_GUI extends JDialog{
         kasseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                JOptionPane.showMessageDialog(null, "Ihre Bestellung wurde erfolgreich aufgenommen. Vielen Dank für Ihren Einkauf!");
+
                 System.exit(0);
                 // Hier methode
 
