@@ -5,12 +5,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
+import java.text.DecimalFormat;
 
 public class FoodDB_GUI extends JDialog{
     private JPanel panel1;
     private JPanel contentPane;
     private JButton bestellungAkzeptierenButton;
-    private JTextField textField10;
     private JButton kasseButton;
     private JComboBox comboBox1;
     private JComboBox comboBox2;
@@ -19,21 +19,25 @@ public class FoodDB_GUI extends JDialog{
     private JPanel imageField;
     private JRadioButton karteRadioButton;
     private JRadioButton radioButton2;
-    private JList list1;
     private JTextField rCode;
     private JLabel rabatt_Code;
     private JRadioButton payPalRadioButton;
     private JRadioButton bitCoinRadioButton;
-    private JButton rabattEinlösenButton;
-    private JTextArea textArea1;
+    private JButton rabattEinloesenButton;
     private JLabel burger1_logo;
     private JLabel burger2_logo;
     private JLabel belgium_logo;
     private JLabel pop_logo;
     private JLabel cola_logo;
     private JLabel fanta_logo;
+    private JTextArea textArea1;
+    private JTextField summenField;
 
-    public FoodDB_GUI(){
+    private double summe = 0;
+
+    DecimalFormat df = new DecimalFormat("#.##");
+
+    public FoodDB_GUI() throws SQLException {
 
         setContentPane(contentPane);
         setModal(true);
@@ -57,72 +61,107 @@ public class FoodDB_GUI extends JDialog{
 
         loadDrinksDatabase("comboBox4", comboBox4);
 
+        init();
 
 
-
-        // Hier heute:
-        // loadPricefromDatabase("JButton", kasseButton);
-
-        /*
-
-        bestellungAkzeptierenButton.addActionListener(new ActionListener() {
-            @Override
+        rabattEinloesenButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                    Class.forName("org.mariadb.jdbc.Driver");
-                    Connection connection = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:8889/KrustyKrab", "root", "root");
+                    String code = rCode.getText();
 
-                // SQL-Abfrage für Foods ausführen
-                String foodsQuery = "SELECT Preis FROM Foods";
-                Statement foodsStatement = connection.createStatement();
-                ResultSet foodsResultSet = foodsStatement.executeQuery(foodsQuery);
+                    if (code.equals("CODEWELLI")) {
+                        summe = summe * 0.9;
+                        summenField.setText(df.format(summe));
+                    } else if (code.equals("CODEFRANCI")) {
+                        summe = summe * 0.8;
+                        summenField.setText(df.format(summe));
+                    } else if (code.equals("CODEADV")) {
+                        summe = summe * 0.85;
+                        summenField.setText(df.format(summe));
+                    } else if (code.equals("CODE3BKI")) {
+                        summe = summe * 0.75;
+                        summenField.setText(df.format(summe));
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Der eingegebene Code ist ungültig!");
+                    }
 
-                // SQL-Abfrage für Drinks ausführen
-                String drinksQuery = "SELECT Preis FROM Drinks";
-                Statement drinksStatement = connection.createStatement();
-                ResultSet drinksResultSet = drinksStatement.executeQuery(drinksQuery);
-
-                // Preise aus den ResultSets in ein ArrayList<Double> speichern
-                ArrayList<Double> prices = new ArrayList<>();
-                while (foodsResultSet.next()) {
-                    double price = foodsResultSet.getDouble("Preis");
-                    prices.add(price);
-                }
-                while (drinksResultSet.next()) {
-                    double price = drinksResultSet.getDouble("Preis");
-                    prices.add(price);
-                }
-
-                // Preise als Text im JTextField anzeigen
-                StringBuilder sb = new StringBuilder();
-                for (double price : prices) {
-                    sb.append(price).append(", ");
-                }
-                // Entfernen des letzten Kommas und Leerzeichens
-                if (sb.length() > 2) {
-                    sb.setLength(sb.length() - 2);
-                }
-                textField10.setText(sb.toString());
-
-                // Ressourcen freigeben
-                foodsResultSet.close();
-                foodsStatement.close();
-                drinksResultSet.close();
-                drinksStatement.close();
-                connection.close();
-            } catch (ClassNotFoundException ex) {
-                ex.printStackTrace();
             }
         });
-
-        // loadComboBoxOptionsFromDatabase(comboBox1);
-*/
-
     }
 
-    private void loadPricefromDatabase(String jButton, JButton kasseButton) {}
+    private void init() throws SQLException {
+
+        bestellungAkzeptierenButton.addActionListener(e -> {
+
+            StringBuilder sb = new StringBuilder();
+
+            String i1 = comboBox1.getSelectedItem().toString();
+            String query = "SELECT Preis FROM Foods WHERE Bezeichnung = '" + i1 + "';";
+
+            String i2 = comboBox2.getSelectedItem().toString();
+            String query2 = "SELECT Preis FROM Foods WHERE Bezeichnung = '" + i2 + "'";
+
+            String i3 = comboBox3.getSelectedItem().toString();
+            String query3 = "SELECT Preis FROM Foods WHERE Bezeichnung = '" + i3 + "'";
+
+            String i4 = comboBox4.getSelectedItem().toString();
+            String query4 = "SELECT Preis FROM Drinks WHERE Bezeichnung = '" + i4 + "'";
+
+            double preis1, preis2, preis3, preis4;
+            preis1 = preis2 = preis3 = preis4 = 0;
 
 
+            try {
+
+                ResultSet r1 = db.select(query);
+                ResultSet r2 = db.select(query2);
+                ResultSet r3 = db.select(query3);
+                ResultSet r4 = db.select(query4);
+
+                while (r1.next()) {
+                    System.out.println(r1.getString("Preis"));
+                    preis1 = Double.parseDouble(r1.getString("Preis"));
+                    // textArea1.setText(preis1);
+                    sb.append(i1 + " " + preis1 + "\n");
+                }
+
+                while (r2.next()) {
+                    System.out.println(r2.getString("Preis"));
+                    preis2 = Double.parseDouble(r2.getString("Preis"));
+                    sb.append(i2 + " " + preis2 + "\n");
+                }
+
+                while (r3.next()) {
+                    System.out.println(r3.getString("Preis"));
+                    preis3 = Double.parseDouble(r3.getString("Preis"));
+                    sb.append(i3 + " " + preis3 + "\n");
+                }
+
+                while (r4.next()) {
+                    System.out.println(r4.getString("Preis"));
+                    preis4 = Double.parseDouble(r4.getString("Preis"));
+                    sb.append(i4 + " " + preis4 + "\n");
+                }
+
+                sb.append("-------------------\n");
+                summe = preis1 + preis2 + preis3 + preis4;
+                sb.append("Gesamt: " + df.format(summe) + "\n");
+
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+
+            System.out.println(i2);
+            System.out.println(query2);
+
+            textArea1.setText(sb.toString());
+
+
+
+        });
+    }
+
+    // Foods-Tabelle
     private void loadComboBoxOptionsFromDatabase(String columnName, JComboBox comboBox) {
         try {
 
@@ -139,18 +178,6 @@ public class FoodDB_GUI extends JDialog{
             while (resultSet.next()) {
                 String option = resultSet.getString("Bezeichnung");
                 comboBox.addItem(option);
-            }
-
-            // Recupero del valore selezionato dalla JComboBox
-            String selectedOption = comboBox.getSelectedItem().toString();
-
-            // Impostazione dell'immagine come sfondo in base alla selezione
-            if (selectedOption.equals("Double Cheese Burger")) {
-                ImageIcon icon = new ImageIcon("src/_32_FastFoodBestellTool/double_cheese_burger.png");
-                JLabel label = new JLabel(icon);
-                imageField.add(label);
-            } else {
-                System.out.println("Immagine non trovata");
             }
 
             // Ressourcen freigeben
@@ -195,25 +222,6 @@ public class FoodDB_GUI extends JDialog{
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public static void main(String[] args) {
-
-        try {
-
-            FoodDB_GUI dialog  = new FoodDB_GUI();
-            dialog.pack();
-            dialog.setVisible(true);
-            System.exit(0);
-
-        }
-        catch (IllegalArgumentException event){
-            System.out.println("Fehler");
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-
     }
 
     private void createUIComponents() {

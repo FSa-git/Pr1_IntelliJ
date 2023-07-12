@@ -155,28 +155,12 @@
                             <properties/>
                             <border type="none"/>
                             <children>
-                              <component id="8beec" class="javax.swing.JTextField" binding="textField10" default-binding="true">
-                                <constraints>
-                                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                                    <preferred-size width="150" height="-1"/>
-                                  </grid>
-                                </constraints>
-                                <properties/>
-                              </component>
                               <component id="9be8a" class="javax.swing.JButton" binding="kasseButton" default-binding="true">
                                 <constraints>
                                   <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                                 </constraints>
                                 <properties>
                                   <text value="Jetzt bezahlen"/>
-                                </properties>
-                              </component>
-                              <component id="5512" class="javax.swing.JLabel">
-                                <constraints>
-                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                                </constraints>
-                                <properties>
-                                  <text value="Summe:"/>
                                 </properties>
                               </component>
                               <grid id="92f47" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
@@ -229,7 +213,7 @@
                                   <text value="Rabatt Code:"/>
                                 </properties>
                               </component>
-                              <component id="b338d" class="javax.swing.JButton" binding="rabattEinlösenButton" default-binding="true">
+                              <component id="b338d" class="javax.swing.JButton" binding="rabattEinloesenButton">
                                 <constraints>
                                   <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                                 </constraints>
@@ -245,6 +229,24 @@
                                   <text value="Bezahlmöglichkeiten"/>
                                 </properties>
                               </component>
+                              <component id="bc8b3" class="javax.swing.JTextField" binding="summenField">
+                                <constraints>
+                                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                    <preferred-size width="150" height="-1"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <editable value="false"/>
+                                </properties>
+                              </component>
+                              <component id="34719" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <text value="Summe"/>
+                                </properties>
+                              </component>
                             </children>
                           </grid>
                           <grid id="843db" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
@@ -254,13 +256,12 @@
                             <properties/>
                             <border type="none"/>
                             <children>
-                              <component id="c1709" class="javax.swing.JList" binding="list1" default-binding="true">
+                              <component id="d640a" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
                                 <constraints/>
-                                <properties/>
-                              </component>
-                              <component id="72a99" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
-                                <constraints/>
-                                <properties/>
+                                <properties>
+                                  <columns value="10"/>
+                                  <rows value="5"/>
+                                </properties>
                               </component>
                             </children>
                           </grid>
