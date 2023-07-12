@@ -32,6 +32,7 @@ public class FoodDB_GUI extends JDialog{
     private JLabel fanta_logo;
     private JTextArea textArea1;
     private JTextField summenField;
+    private JButton zurücksetzenButton;
 
     private double summe = 0;
 
@@ -54,7 +55,6 @@ public class FoodDB_GUI extends JDialog{
             }
         });
 
-
         loadComboBoxOptionsFromDatabase("comboBox1", comboBox1);
         loadComboBoxOptionsFromDatabase("comboBox2", comboBox2);
         loadComboBoxOptionsFromDatabase("comboBox3", comboBox3);
@@ -71,20 +71,36 @@ public class FoodDB_GUI extends JDialog{
 
                     if (code.equals("CODEWELLI")) {
                         summe = summe * 0.9;
-                        summenField.setText(df.format(summe));
+                        summenField.setText(df.format(summe) + " €");
                     } else if (code.equals("CODEFRANCI")) {
                         summe = summe * 0.8;
-                        summenField.setText(df.format(summe));
+                        summenField.setText(df.format(summe) + " €");
                     } else if (code.equals("CODEADV")) {
                         summe = summe * 0.85;
-                        summenField.setText(df.format(summe));
+                        summenField.setText(df.format(summe) + " €");
                     } else if (code.equals("CODE3BKI")) {
                         summe = summe * 0.75;
-                        summenField.setText(df.format(summe));
+                        summenField.setText(df.format(summe) + " €");
                     } else {
-                        JOptionPane.showMessageDialog(null, "Der eingegebene Code ist ungültig!");
+                        // JOptionPane.showMessageDialog(null, "Der eingegebene Code ist ungültig!");
+                        // System.out.println("Der eingegebene Code ist ungültig!");
+
+                        summenField.setText("Ungültiger Code!");
                     }
 
+            }
+        });
+        zurücksetzenButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+                    summe = 0;
+                    summenField.setText("");
+                    rCode.setText("");
+                    comboBox1.setSelectedIndex(0);
+                    comboBox2.setSelectedIndex(0);
+                    comboBox3.setSelectedIndex(0);
+                    comboBox4.setSelectedIndex(0);
+                    textArea1.setText("");
             }
         });
     }
@@ -119,33 +135,41 @@ public class FoodDB_GUI extends JDialog{
                 ResultSet r4 = db.select(query4);
 
                 while (r1.next()) {
-                    System.out.println(r1.getString("Preis"));
-                    preis1 = Double.parseDouble(r1.getString("Preis"));
-                    // textArea1.setText(preis1);
-                    sb.append(i1 + " " + preis1 + "\n");
+                    if (!i1.equals("Bitte Auswählen")) {
+                        System.out.println(r1.getString("Preis"));
+                        preis1 = Double.parseDouble(r1.getString("Preis"));
+                        sb.append(i1 + " " + df.format(preis1) + " €" + "\n");
+                    }
                 }
 
                 while (r2.next()) {
-                    System.out.println(r2.getString("Preis"));
-                    preis2 = Double.parseDouble(r2.getString("Preis"));
-                    sb.append(i2 + " " + preis2 + "\n");
+                    if (!i2.equals("Bitte Auswählen")) {
+                        System.out.println(r2.getString("Preis"));
+                        preis2 = Double.parseDouble(r2.getString("Preis"));
+                        sb.append(i2 + " " + df.format(preis2) + " €" + "\n");
+                    }
                 }
 
                 while (r3.next()) {
-                    System.out.println(r3.getString("Preis"));
-                    preis3 = Double.parseDouble(r3.getString("Preis"));
-                    sb.append(i3 + " " + preis3 + "\n");
+                    if (!i3.equals("Bitte Auswählen")) {
+                        System.out.println(r3.getString("Preis"));
+                        preis3 = Double.parseDouble(r3.getString("Preis"));
+                        sb.append(i3 + " " + df.format(preis3) + " €" + "\n");
+                    }
                 }
 
                 while (r4.next()) {
-                    System.out.println(r4.getString("Preis"));
-                    preis4 = Double.parseDouble(r4.getString("Preis"));
-                    sb.append(i4 + " " + preis4 + "\n");
+                    if (!i4.equals("Bitte Auswählen")) {
+                        System.out.println(r4.getString("Preis"));
+                        preis4 = Double.parseDouble(r4.getString("Preis"));
+                        sb.append(i4 + " " + df.format(preis4) + " €" + "\n");
+                    }
                 }
+
 
                 sb.append("-------------------\n");
                 summe = preis1 + preis2 + preis3 + preis4;
-                sb.append("Gesamt: " + df.format(summe) + "\n");
+                sb.append("Gesamt: " + df.format(summe) + " €" + "\n");
 
             } catch (SQLException ex) {
                 throw new RuntimeException(ex);
@@ -155,8 +179,6 @@ public class FoodDB_GUI extends JDialog{
             System.out.println(query2);
 
             textArea1.setText(sb.toString());
-
-
 
         });
     }
