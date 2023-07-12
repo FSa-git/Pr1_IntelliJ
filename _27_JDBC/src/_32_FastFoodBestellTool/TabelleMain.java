@@ -10,6 +10,7 @@ public class TabelleMain {
             dialog.pack();
             dialog.setVisible(true);
             System.exit(0);
+            dialog.setLocation(500, 500);
 
         }
         catch (IllegalArgumentException event){
