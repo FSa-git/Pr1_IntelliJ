@@ -18,7 +18,9 @@
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
-            <properties/>
+            <properties>
+              <background color="-16777216"/>
+            </properties>
             <border type="none"/>
             <children>
               <splitpane id="1b025">
@@ -52,6 +54,7 @@
                               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
                             </constraints>
                             <properties>
+                              <font style="1"/>
                               <text value="Mein Warenkorb"/>
                             </properties>
                           </component>
@@ -152,6 +155,7 @@
                               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
                             </constraints>
                             <properties>
+                              <font style="1"/>
                               <text value="Zu Bezahlen"/>
                             </properties>
                           </component>
@@ -168,6 +172,10 @@
                                   <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                                 </constraints>
                                 <properties>
+                                  <background color="-13946663"/>
+                                  <font style="1"/>
+                                  <foreground color="-16777216"/>
+                                  <hideActionText value="false"/>
                                   <text value="Jetzt bezahlen"/>
                                 </properties>
                               </component>
@@ -234,6 +242,7 @@
                                   <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                                 </constraints>
                                 <properties>
+                                  <font/>
                                   <text value="Bezahlmöglichkeiten"/>
                                 </properties>
                               </component>
@@ -242,8 +251,8 @@
                                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                                 </constraints>
                                 <properties>
-                                  <font/>
-                                  <text value="Summe mit Rabatt:"/>
+                                  <font style="1"/>
+                                  <text value="Endgültige Summe:"/>
                                 </properties>
                               </component>
                               <component id="bc8b3" class="javax.swing.JTextField" binding="summenField">
@@ -340,6 +349,7 @@
                           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
+                          <font style="1"/>
                           <text value="Menu Ansicht"/>
                         </properties>
                       </component>

@@ -1,0 +1,7 @@
+Ihre Bestellung: 
+===============
+
+Gesamtpreis: 2,27 €
+Rabatt: ,80 €
+Zu zahlender Betrag: 1,47 €
+===============

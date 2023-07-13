@@ -4,8 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.sql.*;
 import java.text.DecimalFormat;
+
+import static _32_FastFoodBestellTool.RechnungSchreiben.writeBill;
 
 public class FoodDB_GUI extends JDialog{
     private JPanel panel1;
@@ -54,7 +57,6 @@ public class FoodDB_GUI extends JDialog{
                 System.out.println("-------------------");
                 System.out.println("Vielen Dank für Ihren Einkauf!");
                 System.out.println("-------------------");
-                System.out.println(trennzeichen);
 
                 System.out.println("Bezahlmethode:");
                 if (barButton.isSelected()) {
@@ -70,12 +72,15 @@ public class FoodDB_GUI extends JDialog{
                 }
 
                 System.out.println("-------------------");
-                System.out.println(trennzeichen);
 
-                JOptionPane.showMessageDialog( null, "Ihre Bestellung wurde erfolgreich aufgenommen. Vielen Dank für Ihren Einkauf!");
-
-                System.exit(0);
-
+                try {
+                    writeBill(summe, 0.8);
+                    JOptionPane.showMessageDialog(null, "Ihre Bestellung wurde erfolgreich aufgenommen. Vielen Dank für Ihren Einkauf!");
+                    System.exit(0);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                    System.out.println("Fehler beim Schreiben der Rechnung.");
+                }
             }
         });
 
