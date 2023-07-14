@@ -1,6 +1,6 @@
 package _32_FastFoodBestellTool;
 
-public class TabelleMain {
+public class FoodToolMain {
 
     public static void main(String[] args) {
 

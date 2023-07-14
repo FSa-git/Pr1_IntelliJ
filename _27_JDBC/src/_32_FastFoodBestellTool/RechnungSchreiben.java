@@ -12,9 +12,10 @@ import java.text.DecimalFormat;
 public class RechnungSchreiben {
 
     static String path = "/Users/francescosakautzki/Desktop/Pr1_IntelliJ/_27_JDBC/src/_32_FastFoodBestellTool/beleg.txt";
-
     public static void writeBill(double totalpreis, double rabatt) throws IOException {
+
         Charset charset = Charset.forName("UTF-8");
+        String platzhalter = "\t";
         BufferedWriter writer = null;
         DecimalFormat df = new DecimalFormat("#.00");
 
@@ -25,14 +26,16 @@ public class RechnungSchreiben {
             writer.write("Ihre Bestellung: ");
             writer.newLine();
             writer.write("===============");
+            writer.newLine();
             writer.write("");
             writer.newLine();
+            writer.write("Gesamtpreis: " + platzhalter + df.format(totalpreis) + " €");
             writer.newLine();
-            writer.write("Gesamtpreis: " + df.format(totalpreis) + " €");
+            writer.write("Rabatt: " + platzhalter + df.format(rabatt) + " €");
             writer.newLine();
-            writer.write("Rabatt: " + df.format(rabatt) + " €");
+            writer.write("-----------------");
             writer.newLine();
-            writer.write("Zu zahlender Betrag: " + df.format(totalpreis - rabatt) + " €");
+            writer.write("Zu zahlender Betrag: " + platzhalter + df.format(totalpreis - rabatt) + " €");
             writer.newLine();
             writer.write("===============");
             writer.newLine();

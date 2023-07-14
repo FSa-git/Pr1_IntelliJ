@@ -6,7 +6,7 @@ public class Reader {
 
         long Start_time = System.nanoTime();
 
-        file_reader.read();
+       // file_reader.read();
 
         long End_time = System.nanoTime();
 

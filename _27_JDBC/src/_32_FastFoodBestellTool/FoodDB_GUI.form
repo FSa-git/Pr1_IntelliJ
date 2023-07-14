@@ -282,7 +282,7 @@
                                   <component id="d640a" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
                                     <constraints/>
                                     <properties>
-                                      <columns value="25"/>
+                                      <columns value="35"/>
                                       <editable value="false"/>
                                       <font name="Courier New"/>
                                       <rows value="20"/>

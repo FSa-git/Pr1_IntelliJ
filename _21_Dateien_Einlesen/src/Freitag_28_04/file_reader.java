@@ -22,7 +22,7 @@ public class file_reader {
         nanoStartTime = System.nanoTime();
         millisStartTime = System.currentTimeMillis();
 
-        readWithBufferedReader();
+        // readWithBufferedReader();
 
         nanoEndTime = System.nanoTime();
         millisEndTime = System.currentTimeMillis();
@@ -64,6 +64,14 @@ public class file_reader {
         System.out.println("Lesen mit dem BufferedReader (readLine()):");
         System.out.println("Laufzeit in Nanosekunden: " + (nanoDurationBufferedReaderLines) + "ns");
         System.out.println("Laufzeit in Millisekunden: " + (millisDurationBufferedReaderLines) + "ms");
+
+    }
+
+    private static void readWithFileReader() {
+
+    }
+
+    private static void readWithBufferedReaderLines() {
 
     }
 }

@@ -1,7 +1,9 @@
 Ihre Bestellung: 
 ===============
-
-Gesamtpreis: 2,27 €
-Rabatt: ,80 €
-Zu zahlender Betrag: 1,47 €
+Belgium Fries	1.45 €
+Gesamtpreis: 	1,45 €
+Rabatt: 	,80 €
+-----------------
+Zu zahlender Betrag: 	,65 €
 ===============
+

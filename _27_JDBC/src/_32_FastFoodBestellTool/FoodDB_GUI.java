@@ -53,7 +53,7 @@ public class FoodDB_GUI extends JDialog{
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                System.out.println("Gesamt (mit Rabatt): " + df.format(summe) + " €");
+                System.out.println("Gesamtsumme: " + df.format(summe) + " €");
                 System.out.println("-------------------");
                 System.out.println("Vielen Dank für Ihren Einkauf!");
                 System.out.println("-------------------");
@@ -147,6 +147,12 @@ public class FoodDB_GUI extends JDialog{
                     comboBox3.setSelectedIndex(0);
                     comboBox4.setSelectedIndex(0);
                     textArea1.setText("");
+
+                    System.out.println("-------------------");
+                    System.out.println("Alle Felder wurden zurückgesetzt.");
+                    System.out.println("-------------------");
+
+
             }
         });
     }
@@ -158,6 +164,7 @@ public class FoodDB_GUI extends JDialog{
 
             StringBuilder sb = new StringBuilder();
             String trenner = "\n";
+            String ph = "\t";
 
             String i1 = comboBox1.getSelectedItem().toString();
             String query = "SELECT Preis FROM Foods WHERE Bezeichnung = '" + i1 + "';";
@@ -193,7 +200,7 @@ public class FoodDB_GUI extends JDialog{
                     if (!i1.equals("Bitte Auswählen")) {
                         System.out.println(i1 + "\t" + r1.getString("Preis") + " €");
                         preis1 = Double.parseDouble(r1.getString("Preis"));
-                        sb.append(i1 + " " + df.format(preis1) + " €" + "\n");
+                        sb.append(i1 + " " + ph + df.format(preis1) + " €" + "\n");
                     }
                 }
 
@@ -201,7 +208,7 @@ public class FoodDB_GUI extends JDialog{
                     if (!i2.equals("Bitte Auswählen")) {
                         System.out.println(i2 + "\t" + r2.getString("Preis") + " €");
                         preis2 = Double.parseDouble(r2.getString("Preis"));
-                        sb.append(i2 + " " + df.format(preis2) + " €" + "\n");
+                        sb.append(i2 + " " + ph + df.format(preis2) + " €" + "\n");
                     }
                 }
 
@@ -209,20 +216,20 @@ public class FoodDB_GUI extends JDialog{
                     if (!i3.equals("Bitte Auswählen")) {
                         System.out.println(i3 + "\t" + r3.getString("Preis") + " €");
                         preis3 = Double.parseDouble(r3.getString("Preis"));
-                        sb.append(i3 + " " + df.format(preis3) + " €" + "\n");
+                        sb.append(i3 + " " + ph + df.format(preis3) + " €" + "\n");
                     }
                 }
 
                 while (r4.next()) {
                     if (!i4.equals("Bitte Auswählen")) {
-                        System.out.println(i4 + "\t" + r4.getString("Preis") + " €");
+                        System.out.println(i4 + "\t" + "\t" + r4.getString("Preis") + " €");
                         preis4 = Double.parseDouble(r4.getString("Preis"));
-                        sb.append(i4 + " " + df.format(preis4) + " €" + "\n");
+                        sb.append(i4 + " " + ph + df.format(preis4) + " €" + "\n");
                     }
                 }
 
 
-                sb.append("-------------------\n");
+                sb.append("------------------------\n");
                 summe = preis1 + preis2 + preis3 + preis4;
                 sb.append("Gesamt: " + df.format(summe) + " €" + "\n");
 

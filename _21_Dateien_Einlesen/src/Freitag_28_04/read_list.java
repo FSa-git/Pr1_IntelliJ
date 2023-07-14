@@ -5,10 +5,12 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class read_list {
-
+/*
     static String fileName = "";
 
-        try ( FileReader reader = new FileReader(filePath) ) {
+        try {( FileReader reader = new FileReader(filePath) ) {
+
+
         int c;
         int count = 0;
         while ( ( c = reader.read() ) != -1 ) {
@@ -28,5 +30,9 @@ public class read_list {
         for (int i = 0; i < lines.size(); i++){
         System.out.println("Hello" + lines.get(i) + "\n");
     }
+
+}
+
+ */
 
 }
