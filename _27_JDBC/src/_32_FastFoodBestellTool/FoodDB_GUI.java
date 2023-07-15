@@ -46,6 +46,11 @@ public class FoodDB_GUI extends JDialog{
 
     private static final String LOG_FILE = "/Users/francescosakautzki/Desktop/Pr1_IntelliJ/_27_JDBC/src/_32_FastFoodBestellTool/log.txt";
 
+    private String rabattCodeName;
+
+    private String bestellId;
+
+    private String zahlnungsmethode;
 
     private double summe = 0;
 
@@ -70,21 +75,28 @@ public class FoodDB_GUI extends JDialog{
 
                 System.out.println("Bezahlmethode:");
                 if (barButton.isSelected()) {
+                    zahlnungsmethode = "Barzahlung";
                     System.out.println("Bar");
                     logger.info("Bezahlmethode: Bar");
                 } else if (karteRadioButton.isSelected()) {
+                    zahlnungsmethode = "Kreditkarte";
                     System.out.println("Kreditkarte");
                     logger.info("Bezahlmethode: Kreditkarte");
                 } else if (payPalRadioButton.isSelected()) {
+                    zahlnungsmethode = "PayPal";
                     System.out.println("PayPal");
                     logger.info("Bezahlmethode: PayPal");
                 } else if (bitCoinRadioButton.isSelected()) {
+                    zahlnungsmethode = "BitCoin";
                     System.out.println("BitCoin");
                     logger.info("Bezahlmethode: BitCoin");
                 } else {
+                    zahlnungsmethode = "Keine ausgewählt";
                     System.out.println("Keine ausgewählt");
                     logger.info("Bezahlmethode: Keine ausgewählt");
                 }
+
+                bestellId = BestellNumGenerator.generateBestellnummer();
 
                 try {
                     String i1 = comboBox1.getSelectedItem().toString();
@@ -147,7 +159,10 @@ public class FoodDB_GUI extends JDialog{
                     logger.info("Gesamtsumme: " + df.format(summe) + " €");
                     logger.info("Rechnung wird geschrieben");
                     logger.info("Programm wird beendet");
-                    writeBill(summe, rabattWert, i1, preis1, i2, preis2, i3, preis3, i4, preis4);
+
+                    // Rechnung schreiben
+                    writeBill(summe, rabattWert, i1, preis1, i2, preis2, i3, preis3, i4, preis4, rabattCodeName, bestellId, zahlnungsmethode);
+
                     JOptionPane.showMessageDialog(null, "Ihre Bestellung wurde erfolgreich aufgenommen. Vielen Dank für Ihren Einkauf!");
                     System.exit(0);
                 } catch (IOException | SQLException ex) {
@@ -211,6 +226,7 @@ public class FoodDB_GUI extends JDialog{
                         logger.info("Der eingegebene Code: " + rCode.getText() + " ist ungültig!");
                     }
 
+                    rabattCodeName =code;
             }
         });
 
@@ -324,7 +340,7 @@ public class FoodDB_GUI extends JDialog{
 
                 // Aufruf der writeBill-Methode
                 try {
-                    RechnungSchreiben.writeBill(summe, rabattWert, i1, preis1, i2, preis2, i3, preis3, i4, preis4);
+                    RechnungSchreiben.writeBill(summe, rabattWert, i1, preis1, i2, preis2, i3, preis3, i4, preis4, rabattCodeName, bestellId, zahlnungsmethode);
                 } catch (IOException ex) {
                     ex.printStackTrace();
                     System.out.println("Fehler beim Schreiben der Rechnung.");

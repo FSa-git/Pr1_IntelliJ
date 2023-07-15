@@ -9,11 +9,13 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class RechnungSchreiben {
 
     static String path = "/Users/francescosakautzki/Desktop/Pr1_IntelliJ/_27_JDBC/src/_32_FastFoodBestellTool/beleg.txt";
-    public static void writeBill(double totalpreis, double rabatt, String i1, double preis1, String i2, double preis2, String i3, double preis3, String i4, double preis4) throws IOException {
+    public static void writeBill(double totalpreis, double rabatt, String i1, double preis1, String i2, double preis2, String i3, double preis3, String i4, double preis4, String rabattCodeName, String bestellId, String zahlungsmethode) throws IOException {
 
         Charset charset = Charset.forName("UTF-8");
         String platzhalter = "\t";
@@ -21,18 +23,26 @@ public class RechnungSchreiben {
         DecimalFormat df = new DecimalFormat("0.00");
         double gesamtP = preis1 + preis2 + preis3 + preis4;
 
-        LocalDate date = LocalDate.now();
+        // LocalDate date = LocalDate.now();
+        LocalDateTime dateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
+        String formattedDateTime = dateTime.format(formatter);
+
 
         try {
             writer = Files.newBufferedWriter(Path.of(path), charset, StandardOpenOption.CREATE);
 
             // Rechnungsinformationen schreiben
-            writer.write("[ Rechnung vom " + date + " ]");
+            writer.write("[ Rechnung vom " + formattedDateTime + " ]");
+            writer.newLine();
+            writer.newLine();
+            writer.write("*************************");
+            writer.newLine();
+            writer.write("Bestell-ID: " + bestellId);
             writer.newLine();
             writer.write("Ihre Bestellung: ");
             writer.newLine();
             writer.write("=================");
-            writer.newLine();
             writer.newLine();
             if (!i1.equals("Bitte Auswählen")){
                 writer.write(i1 + platzhalter + df.format(preis1) + " €");
@@ -56,6 +66,8 @@ public class RechnungSchreiben {
             writer.newLine();
             writer.write("Gesamtpreis: " + platzhalter + df.format(gesamtP) + " €");
             writer.newLine();
+            writer.write("Rabattcode: " + rabattCodeName);
+            writer.newLine();
             writer.write("Rabatt: " + platzhalter + df.format(rabatt) + " €");
             writer.newLine();
             writer.write("-----------------");
@@ -64,6 +76,16 @@ public class RechnungSchreiben {
             writer.newLine();
             writer.write("=================");
             writer.newLine();
+            writer.write("Zahlungsmethode: " + zahlungsmethode);
+            writer.newLine();
+            writer.write("-----------------");
+            writer.newLine();
+            writer.write("Vielen Dank für Ihren Einkauf!");
+            writer.newLine();
+            writer.write("*************************");
+            writer.newLine();
+            writer.newLine();
+            writer.write("[ --- FoodTool --- ]");
 
             System.out.println("Die Rechnung wurde erfolgreich erstellt.");
 
