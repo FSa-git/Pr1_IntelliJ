@@ -28,6 +28,7 @@ public class FoodToolMain {
             logger.info("Programm wurde gestartet");
 
             FoodDB_GUI dialog  = new FoodDB_GUI();
+            dialog.setTitle("FastFoodBestellTool");
             dialog.pack();
             dialog.setVisible(true);
             System.exit(0);

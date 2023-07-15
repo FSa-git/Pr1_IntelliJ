@@ -1,23 +1,24 @@
-[ Rechnung vom 15.07.2023 15:32:39 ]
+[ Rechnung vom 15.07.2023 19:00:46 ]
 
 *************************
-Bestell-ID: #657179
+Bestell-ID: #257076
 Ihre Bestellung: 
 =================
-Belgium Fries	1,45 €
-Ceaser Burger 1,99 €
-Double Cheese Burger 2,99 €
-Sprite 1,40 €
+Double Cheese Burger	2,99 €
+Belgium Fries 1,45 €
+Coca-Cola 1,30 €
 -----------------
-Gesamtpreis: 	7,83 €
-Rabattcode: CODE3BKI
-Rabatt: 	1,47 €
+Gesamtpreis: 	5,74 €
+Rabattcode: null
+Rabatt: 	0,00 €
 -----------------
-Zu zahlender Betrag: 	5,87 €
+Zu zahlender Betrag: 	5,74 €
 =================
-Zahlungsmethode: PayPal
+Zahlungsmethode: Kreditkarte
 -----------------
 Vielen Dank für Ihren Einkauf!
 *************************
 
 [ --- FoodTool --- ]
+
+

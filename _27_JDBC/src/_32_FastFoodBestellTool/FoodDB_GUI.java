@@ -176,7 +176,6 @@ public class FoodDB_GUI extends JDialog{
         loadComboBoxOptionsFromDatabase("comboBox1", comboBox1);
         loadComboBoxOptionsFromDatabase("comboBox2", comboBox2);
         loadComboBoxOptionsFromDatabase("comboBox3", comboBox3);
-
         loadDrinksDatabase("comboBox4", comboBox4);
 
         init();
@@ -357,7 +356,7 @@ public class FoodDB_GUI extends JDialog{
         });
     }
 
-    // Foods-Tabelle
+    // Combobox-Zugriff auf die Foods-Tabelle
     private void loadComboBoxOptionsFromDatabase(String columnName, JComboBox comboBox) {
         try {
 
@@ -388,7 +387,7 @@ public class FoodDB_GUI extends JDialog{
         }
     }
 
-    // Drinks-Tabelle
+    // Combobox-Zugriff auf die Drinks-Tabelle
     private void loadDrinksDatabase(String columnName, JComboBox comboBox) {
         try {
 
@@ -420,6 +419,7 @@ public class FoodDB_GUI extends JDialog{
         }
     }
 
+    // Skalierung der Bilder
     private void createUIComponents() {
         ImageIcon burger1Icon = new ImageIcon("/Users/francescosakautzki/Desktop/Pr1_IntelliJ/_27_JDBC/src/_32_FastFoodBestellTool/double_cheese_burger.png");
         burger1_logo = new JLabel(scaleImageIcon(burger1Icon, 80, 80));
