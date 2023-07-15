@@ -1,9 +1,14 @@
+[ Rechnung vom 2023-07-15 ]
 Ihre Bestellung: 
-===============
-Belgium Fries	1.45 €
-Gesamtpreis: 	1,45 €
-Rabatt: 	,80 €
------------------
-Zu zahlender Betrag: 	,65 €
-===============
+=================
 
+Double Cheese Burger	2,99 €
+Ceaser Burger 1,99 €
+Belgium Fries 1,45 €
+Coca-Cola 1,30 €
+-----------------
+Gesamtpreis: 	7,73 €
+Rabatt: 	0,99 €
+-----------------
+Zu zahlender Betrag: 	4,95 €
+=================

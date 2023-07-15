@@ -7,6 +7,9 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.*;
 import java.text.DecimalFormat;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 import static _32_FastFoodBestellTool.RechnungSchreiben.writeBill;
 
@@ -37,9 +40,16 @@ public class FoodDB_GUI extends JDialog{
     private JTextField summenField;
     private JButton zurücksetzenButton;
 
+
+    // LOG-File
+    private static final Logger logger = Logger.getLogger(FoodDB_GUI.class.getName());
+
+    private static final String LOG_FILE = "/Users/francescosakautzki/Desktop/Pr1_IntelliJ/_27_JDBC/src/_32_FastFoodBestellTool/log.txt";
+
+
     private double summe = 0;
 
-    DecimalFormat df = new DecimalFormat("#.##");
+    DecimalFormat df = new DecimalFormat("0.00");
 
     public FoodDB_GUI() throws SQLException {
 
@@ -61,25 +71,89 @@ public class FoodDB_GUI extends JDialog{
                 System.out.println("Bezahlmethode:");
                 if (barButton.isSelected()) {
                     System.out.println("Bar");
+                    logger.info("Bezahlmethode: Bar");
                 } else if (karteRadioButton.isSelected()) {
                     System.out.println("Kreditkarte");
+                    logger.info("Bezahlmethode: Kreditkarte");
                 } else if (payPalRadioButton.isSelected()) {
                     System.out.println("PayPal");
+                    logger.info("Bezahlmethode: PayPal");
                 } else if (bitCoinRadioButton.isSelected()) {
                     System.out.println("BitCoin");
+                    logger.info("Bezahlmethode: BitCoin");
                 } else {
                     System.out.println("Keine ausgewählt");
+                    logger.info("Bezahlmethode: Keine ausgewählt");
                 }
 
-                System.out.println("-------------------");
-
                 try {
-                    writeBill(summe, 0.8);
+                    String i1 = comboBox1.getSelectedItem().toString();
+                    double preis1 = 0.0;
+                    if (!i1.equals("Bitte Auswählen")) {
+                        ResultSet rs1 = db.select("SELECT Preis FROM Foods WHERE Bezeichnung = '" + i1 + "'");
+                        if (rs1.next()) {
+                            preis1 = Double.parseDouble(rs1.getString("Preis"));
+                        }
+                        rs1.close();
+                    }
+
+                    String i2 = comboBox2.getSelectedItem().toString();
+                    double preis2 = 0.0;
+                    if (!i2.equals("Bitte Auswählen")) {
+                        ResultSet rs2 = db.select("SELECT Preis FROM Foods WHERE Bezeichnung = '" + i2 + "'");
+                        if (rs2.next()) {
+                            preis2 = Double.parseDouble(rs2.getString("Preis"));
+                        }
+                        rs2.close();
+                    }
+
+                    String i3 = comboBox3.getSelectedItem().toString();
+                    double preis3 = 0.0;
+                    if (!i3.equals("Bitte Auswählen")) {
+                        ResultSet rs3 = db.select("SELECT Preis FROM Foods WHERE Bezeichnung = '" + i3 + "'");
+                        if (rs3.next()) {
+                            preis3 = Double.parseDouble(rs3.getString("Preis"));
+                        }
+                        rs3.close();
+                    }
+
+                    String i4 = comboBox4.getSelectedItem().toString();
+                    double preis4 = 0.0;
+                    if (!i4.equals("Bitte Auswählen")) {
+                        ResultSet rs4 = db.select("SELECT Preis FROM Drinks WHERE Bezeichnung = '" + i4 + "'");
+                        if (rs4.next()) {
+                            preis4 = Double.parseDouble(rs4.getString("Preis"));
+                        }
+                        rs4.close();
+                    }
+
+
+                    System.out.println("-------------------");
+
+                double rabattWert = 0.0;
+
+                if (rCode.getText().equals("CODEWELLI")) {
+                    rabattWert = summe * 0.1;
+                }
+                if (rCode.getText().equals("CODEFRANCI")) {
+                    rabattWert = summe * 0.2;
+                }
+                if (rCode.getText().equals("CODEADV")) {
+                    rabattWert = summe * 0.15;
+                }
+                if (rCode.getText().equals("CODE3BKI")) {
+                    rabattWert = summe * 0.25;
+                }
+                    logger.info("Gesamtsumme: " + df.format(summe) + " €");
+                    logger.info("Rechnung wird geschrieben");
+                    logger.info("Programm wird beendet");
+                    writeBill(summe, rabattWert, i1, preis1, i2, preis2, i3, preis3, i4, preis4);
                     JOptionPane.showMessageDialog(null, "Ihre Bestellung wurde erfolgreich aufgenommen. Vielen Dank für Ihren Einkauf!");
                     System.exit(0);
-                } catch (IOException ex) {
+                } catch (IOException | SQLException ex) {
                     ex.printStackTrace();
                     System.out.println("Fehler beim Schreiben der Rechnung.");
+                    logger.info("Fehler beim Schreiben der Rechnung.");
                 }
             }
         });
@@ -103,24 +177,28 @@ public class FoodDB_GUI extends JDialog{
                         summenField.setText(df.format(summe) + " €");
                         System.out.println("-------------------");
                         System.out.println("Rabattcode: " + rCode.getText() + " eingelöst.");
+                        logger.info("Rabattcode: " + rCode.getText() + " eingelöst.");
 
                     } else if (code.equals("CODEFRANCI")) {
                         summe = summe * 0.8;
                         summenField.setText(df.format(summe) + " €");
                         System.out.println("-------------------");
                         System.out.println("Rabattcode: " + rCode.getText() + " eingelöst.");
+                        logger.info("Rabattcode: " + rCode.getText() + " eingelöst.");
 
                     } else if (code.equals("CODEADV")) {
                         summe = summe * 0.85;
                         summenField.setText(df.format(summe) + " €");
                         System.out.println("-------------------");
                         System.out.println("Rabattcode: " + rCode.getText() + " eingelöst.");
+                        logger.info("Rabattcode: " + rCode.getText() + " eingelöst.");
 
                     } else if (code.equals("CODE3BKI")) {
                         summe = summe * 0.75;
                         summenField.setText(df.format(summe) + " €");
                         System.out.println("-------------------");
                         System.out.println("Rabattcode: " + rCode.getText() + " eingelöst.");
+                        logger.info("Rabattcode: " + rCode.getText() + " eingelöst.");
 
                     } else {
 
@@ -130,6 +208,7 @@ public class FoodDB_GUI extends JDialog{
                         System.out.println("Der eingegebene Code: " + rCode.getText() + " ist ungültig!");
 
                         summenField.setText("Ungültiger Code!");
+                        logger.info("Der eingegebene Code: " + rCode.getText() + " ist ungültig!");
                     }
 
             }
@@ -152,6 +231,7 @@ public class FoodDB_GUI extends JDialog{
                     System.out.println("Alle Felder wurden zurückgesetzt.");
                     System.out.println("-------------------");
 
+                    logger.info("Alle Felder wurden zurückgesetzt.");
 
             }
         });
@@ -181,6 +261,7 @@ public class FoodDB_GUI extends JDialog{
             double preis1, preis2, preis3, preis4;
             preis1 = preis2 = preis3 = preis4 = 0;
 
+            double rabattWert = 0.0;
 
             try {
 
@@ -201,6 +282,7 @@ public class FoodDB_GUI extends JDialog{
                         System.out.println(i1 + "\t" + r1.getString("Preis") + " €");
                         preis1 = Double.parseDouble(r1.getString("Preis"));
                         sb.append(i1 + " " + ph + df.format(preis1) + " €" + "\n");
+                        logger.info("Bestellung: " + i1 + " " + ph + df.format(preis1) + " €");
                     }
                 }
 
@@ -209,6 +291,7 @@ public class FoodDB_GUI extends JDialog{
                         System.out.println(i2 + "\t" + r2.getString("Preis") + " €");
                         preis2 = Double.parseDouble(r2.getString("Preis"));
                         sb.append(i2 + " " + ph + df.format(preis2) + " €" + "\n");
+                        logger.info("Bestellung: " + i2 + " " + ph + df.format(preis2) + " €");
                     }
                 }
 
@@ -217,6 +300,7 @@ public class FoodDB_GUI extends JDialog{
                         System.out.println(i3 + "\t" + r3.getString("Preis") + " €");
                         preis3 = Double.parseDouble(r3.getString("Preis"));
                         sb.append(i3 + " " + ph + df.format(preis3) + " €" + "\n");
+                        logger.info("Bestellung: " + i3 + " " + ph + df.format(preis3) + " €");
                     }
                 }
 
@@ -225,6 +309,7 @@ public class FoodDB_GUI extends JDialog{
                         System.out.println(i4 + "\t" + "\t" + r4.getString("Preis") + " €");
                         preis4 = Double.parseDouble(r4.getString("Preis"));
                         sb.append(i4 + " " + ph + df.format(preis4) + " €" + "\n");
+                        logger.info("Bestellung: " + i4 + " " + ph + df.format(preis4) + " €");
                     }
                 }
 
@@ -233,8 +318,18 @@ public class FoodDB_GUI extends JDialog{
                 summe = preis1 + preis2 + preis3 + preis4;
                 sb.append("Gesamt: " + df.format(summe) + " €" + "\n");
 
+                logger.info("Gesamt: " + df.format(summe) + " €");
+
                 summenField.setText(df.format(summe) + " €");
 
+                // Aufruf der writeBill-Methode
+                try {
+                    RechnungSchreiben.writeBill(summe, rabattWert, i1, preis1, i2, preis2, i3, preis3, i4, preis4);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                    System.out.println("Fehler beim Schreiben der Rechnung.");
+                    logger.info("Fehler beim Schreiben der Rechnung.");
+                }
 
 
             } catch (SQLException ex) {

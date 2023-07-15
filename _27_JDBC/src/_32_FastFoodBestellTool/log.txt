@@ -1,0 +1,24 @@
+Juli 15, 2023 1:13:38 PM _32_FastFoodBestellTool.FoodToolMain main
+INFORMATION: Programm wurde gestartet
+Juli 15, 2023 1:13:46 PM _32_FastFoodBestellTool.FoodDB_GUI lambda$init$0
+INFORMATION: Bestellung: Double Cheese Burger 	2,99 €
+Juli 15, 2023 1:13:46 PM _32_FastFoodBestellTool.FoodDB_GUI lambda$init$0
+INFORMATION: Bestellung: Ceaser Burger 	1,99 €
+Juli 15, 2023 1:13:46 PM _32_FastFoodBestellTool.FoodDB_GUI lambda$init$0
+INFORMATION: Bestellung: Belgium Fries 	1,45 €
+Juli 15, 2023 1:13:46 PM _32_FastFoodBestellTool.FoodDB_GUI lambda$init$0
+INFORMATION: Bestellung: Coca-Cola 	1,30 €
+Juli 15, 2023 1:13:46 PM _32_FastFoodBestellTool.FoodDB_GUI lambda$init$0
+INFORMATION: Gesamt: 7,73 €
+Juli 15, 2023 1:13:53 PM _32_FastFoodBestellTool.FoodDB_GUI$2 actionPerformed
+INFORMATION: Rabattcode: CODEFRANCI eingelöst.
+Juli 15, 2023 1:13:55 PM _32_FastFoodBestellTool.FoodDB_GUI$2 actionPerformed
+INFORMATION: Rabattcode: CODEFRANCI eingelöst.
+Juli 15, 2023 1:13:57 PM _32_FastFoodBestellTool.FoodDB_GUI$1 actionPerformed
+INFORMATION: Bezahlmethode: Bar
+Juli 15, 2023 1:13:57 PM _32_FastFoodBestellTool.FoodDB_GUI$1 actionPerformed
+INFORMATION: Gesamtsumme: 4,95 €
+Juli 15, 2023 1:13:57 PM _32_FastFoodBestellTool.FoodDB_GUI$1 actionPerformed
+INFORMATION: Rechnung wird geschrieben
+Juli 15, 2023 1:13:57 PM _32_FastFoodBestellTool.FoodDB_GUI$1 actionPerformed
+INFORMATION: Programm wird beendet

@@ -3,7 +3,7 @@ package _32_FastFoodBestellTool;
 import java.text.DecimalFormat;
 
 public class BusinessLogik {
-    private DecimalFormat df = new DecimalFormat("#.##");
+    private DecimalFormat df = new DecimalFormat("0.00");
 
     public double calculateTotalPrice(double preis1, double preis2, double preis3, double preis4) {
         return preis1 + preis2 + preis3 + preis4;
