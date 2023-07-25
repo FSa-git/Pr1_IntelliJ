@@ -1,18 +1,16 @@
-Juli 15, 2023 6:50:00 PM _32_FastFoodBestellTool.FoodToolMain main
+Juli 16, 2023 5:07:26 PM _32_FastFoodBestellTool.FoodToolMain main
 INFORMATION: Programm wurde gestartet
-Juli 15, 2023 6:51:00 PM _32_FastFoodBestellTool.FoodDB_GUI lambda$init$0
-INFORMATION: Bestellung: Double Cheese Burger 	2,99 €
-Juli 15, 2023 6:51:00 PM _32_FastFoodBestellTool.FoodDB_GUI lambda$init$0
-INFORMATION: Bestellung: Belgium Fries 	1,45 €
-Juli 15, 2023 6:51:00 PM _32_FastFoodBestellTool.FoodDB_GUI lambda$init$0
-INFORMATION: Bestellung: Coca-Cola 	1,30 €
-Juli 15, 2023 6:51:00 PM _32_FastFoodBestellTool.FoodDB_GUI lambda$init$0
-INFORMATION: Gesamt: 5,74 €
-Juli 15, 2023 7:00:46 PM _32_FastFoodBestellTool.FoodDB_GUI$1 actionPerformed
+Juli 16, 2023 5:07:42 PM _32_FastFoodBestellTool.FoodDB_GUI lambda$init$0
+INFORMATION: Bestellung: XXL Popcorn  	5,49 €
+Juli 16, 2023 5:07:42 PM _32_FastFoodBestellTool.FoodDB_GUI lambda$init$0
+INFORMATION: Gesamt: 5,49 €
+Juli 16, 2023 5:07:44 PM _32_FastFoodBestellTool.FoodDB_GUI$2 actionPerformed
+INFORMATION: Rabattcode: CODEFRANCI eingelöst.
+Juli 16, 2023 5:07:47 PM _32_FastFoodBestellTool.FoodDB_GUI$1 actionPerformed
 INFORMATION: Bezahlmethode: Kreditkarte
-Juli 15, 2023 7:00:46 PM _32_FastFoodBestellTool.FoodDB_GUI$1 actionPerformed
-INFORMATION: Gesamtsumme: 5,74 €
-Juli 15, 2023 7:00:46 PM _32_FastFoodBestellTool.FoodDB_GUI$1 actionPerformed
+Juli 16, 2023 5:07:47 PM _32_FastFoodBestellTool.FoodDB_GUI$1 actionPerformed
+INFORMATION: Gesamtsumme: 4,39 €
+Juli 16, 2023 5:07:47 PM _32_FastFoodBestellTool.FoodDB_GUI$1 actionPerformed
 INFORMATION: Rechnung wird geschrieben
-Juli 15, 2023 7:00:46 PM _32_FastFoodBestellTool.FoodDB_GUI$1 actionPerformed
+Juli 16, 2023 5:07:47 PM _32_FastFoodBestellTool.FoodDB_GUI$1 actionPerformed
 INFORMATION: Programm wird beendet

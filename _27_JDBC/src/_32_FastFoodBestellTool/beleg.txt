@@ -1,23 +1,23 @@
-[ Rechnung vom 15.07.2023 19:00:46 ]
+[ Rechnung vom 16.07.2023 17:07:47 ]
 
 *************************
-Bestell-ID: #257076
+Bestell-ID: #490430
 Ihre Bestellung: 
 =================
-Double Cheese Burger	2,99 €
-Belgium Fries 1,45 €
-Coca-Cola 1,30 €
+XXL Popcorn 	5,49 €
 -----------------
-Gesamtpreis: 	5,74 €
-Rabattcode: null
-Rabatt: 	0,00 €
+Gesamtpreis: 	5,49 €
+Rabattcode: CODEFRANCI
+Rabatt: 	0,88 €
 -----------------
-Zu zahlender Betrag: 	5,74 €
+Zu zahlender Betrag: 	4,39 €
 =================
 Zahlungsmethode: Kreditkarte
 -----------------
 Vielen Dank für Ihren Einkauf!
 *************************
+
+[ --- FoodTool --- ] --- ]****************
 
 [ --- FoodTool --- ]
 

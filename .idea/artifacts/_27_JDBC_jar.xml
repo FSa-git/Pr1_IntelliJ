@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="_27_JDBC:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/_27_JDBC_jar</output-path>
+    <root id="archive" name="_27_JDBC.jar">
+      <element id="module-output" name="_27_JDBC" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/mariadb-java-client-2.4.2.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
